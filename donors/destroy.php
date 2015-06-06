@@ -65,7 +65,7 @@ if (!($statement = $connection->prepare("DELETE FROM donors WHERE donors.id = ?"
     exit;
 }
 
-if (!$statement->bind_param('ii', $donors_id)) {
+if (!$statement->bind_param('i', $donors_id)) {
     header('Content-type: application/json');
     $response_array = array(
         'status' => 'error',

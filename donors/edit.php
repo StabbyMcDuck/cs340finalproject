@@ -33,7 +33,7 @@ if (!isset($_SESSION['id'])) {
     <link href="../css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="../css/yarns/new.css" rel="stylesheet">
+    <link href="../css/donors/new.css" rel="stylesheet">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="http://malsup.github.com/jquery.form.js"></script>
@@ -78,11 +78,9 @@ if (!($statement = $connection->prepare(
     "SELECT donors.id, " .
     "donors.first_name, " .
     "donors.last_name, " .
-    "donors.dob, " ..
+    "donors.dob, " .
     "FROM donors " .
-    "INNER JOIN users AS purchasers " .
-    "ON purchasers.id = yarns.purchaser_id " .
-    "WHERE purchasers.id = ? AND yarns.id = ?"
+    "WHERE donors.id = ?"
 ))
 ) {
     error_log($connection->error);
@@ -92,7 +90,7 @@ if (!($statement = $connection->prepare(
     exit;
 }
 
-if (!$statement->bind_param('ii', $_SESSION['id'], $yarn_id)) {
+if (!$statement->bind_param('i', $donor_id)) {
     error_log($statement->error);
     ?>
     <p>Try again later (2)</p>
@@ -110,14 +108,11 @@ if (!$statement->execute()) {
 }
 
 $out_id = null;
-$out_manufacturer = null;
-$out_name = null;
-$out_colorway = null;
-$out_purchased = null;
-$out_weight = null;
-$out_private = null;
+$out_first_name = null;
+$out_last_name = null;
+$out_dob = null;
 
-if (!$statement->bind_result($out_id, $out_manufacturer, $out_name, $out_colorway, $out_purchased, $out_weight, $out_private)) {
+if (!$statement->bind_result($out_id, $out_first_name, $out_last_name, $out_dob)) {
     error_log($statement->error);
     ?>
     <p>Try again later (4)</p>
@@ -129,36 +124,22 @@ while ($statement->fetch()) {
     <div class="container">
 
         <form action="update.php" class="form-signin" id="form" method="post">
-            <h2 class="form-signin-heading">Edit Yarn</h2>
+            <h2 class="form-signin-heading">Edit Donor</h2>
             <input type="hidden" name="id" value="<?php echo $out_id ?>">
 
-            <label for="manufacturer" class="sr-only">Manufacturer</label>
-            <input type="text" id="manufacturer" class="form-control" placeholder="Manufacturer" required autofocus
-                   name="manufacturer" value="<?php echo $out_manufacturer ?>">
+            <label for="first_name" class="sr-only">First Name</label>
+            <input type="text" id="first_name" class="form-control" placeholder="First Name" required autofocus
+                   name="first_name" value="<?php echo $out_first_name ?>">
 
-            <label for="name" class="sr-only">Yarn Name</label>
-            <input type="text" id="name" class="form-control" placeholder="Yarn Name" required autofocus name="name"
-                   value="<?php echo $out_name ?>">
+            <label for="last_name" class="sr-only">Last Name</label>
+            <input type="text" id="last_name" class="form-control" placeholder="Last Name" required autofocus
+                   name="last_name" value="<?php echo $out_last_name ?>">
 
-            <label for="colorway" class="sr-only">Colorway</label>
-            <input type="text" id="colorway" class="form-control" placeholder="Yarn Colorway" required autofocus
-                   name="colorway" value="<?php echo $out_colorway ?>">
+            <label for="dob" class="sr-only">Date of Birth</label>
+            <input type="date" id="dob" class="form-control" placeholder="Date of Birth" required autofocus
+                   name="dob" value="<?php echo $out_dob ?>">
 
-            <label for="purchased" class="sr-only">Date Purchased</label>
-            <input type="date" id="purchased" class="form-control" placeholder="Date Purchased" required autofocus
-                   name="purchased" value="<?php echo $out_purchased ?>">
-
-            <label for="weight" class="sr-only">Yarn Weight</label>
-            <input type="text" id="weight" class="form-control" placeholder="Yarn Weight" required autofocus
-                   name="weight" value="<?php echo $out_weight ?>">
-
-            <input type="checkbox" <?php
-            if ($out_private == 1) {
-                echo "checked";
-            }
-            ?> name="private" value="true">Make this yarn private<br>
-
-            <button class="btn btn-lg btn-primary btn-block" type="submit">Update Yarn</button>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Update Donor</button>
 
             <p id="form-errors">
 

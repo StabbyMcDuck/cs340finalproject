@@ -64,16 +64,6 @@ if (!checkdate($dob_parsed['month'], $dob_parsed['day'], $dob_parsed['year'])) {
     exit;
 }
 
-$private = filter_input(INPUT_POST, 'private', FILTER_VALIDATE_BOOLEAN);
-// cast to int because mysql boolean is tinyint(1)
-if ($private === NULL) {
-    $private = 0;
-} elseif ($private === false) {
-    $private = 0;
-} elseif ($private === true) {
-    $private = 1;
-}
-
 include '../configuration.php';
 // Create connection
 $connection = new mysqli(
@@ -129,7 +119,7 @@ $statement->close();
 header('Content-type: application/json');
 $response_array = array(
     'status' => 'success',
-    'message' => 'Yarn created'
+    'message' => 'Donor registered'
 );
 echo json_encode($response_array);
 exit;
