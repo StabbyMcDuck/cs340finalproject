@@ -26,7 +26,7 @@
                     $('#form-errors').html(xhr.responseJSON.message);
                 },
                 success: function(responseJSON, statusText, xhr, formElement) {
-                    $(location).attr('href','../yarns/index.php');
+                    $(location).attr('href','../index.php');
                 }
             };
             $('#form').ajaxForm(options);
