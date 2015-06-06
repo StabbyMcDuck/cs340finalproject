@@ -67,29 +67,7 @@ if($mysqli->connect_errno){
 ?>
         </table>
 </div>
-<div class="container">
-    <form method="post" action="addDonor.php"> <!-- CHANGE THIS LATER!!!! -->
-        <fieldset>
-            <legend>
-                Donor Information
-            </legend>
-            <p>
-                Donor First Name: <input type="text" name="DonorFirstName" />
-            </p>
-            <p>
-                Donor Last Name: <input type="text" name="DonorLastName" />
-            </p>
-            <p>
-                Donor Date of Birth: <input type="date" name="DonorDOB" />
-            </p>
-            <p>
-                Donor ID: <input type="text" name="DonorID" />
-            </p>
-        </fieldset>
-        <input type="submit" name="add" value="Add Donor Information" />
-        <input type="submit" name="update" value="Update Donor Information" />
-    </form>
-</div>
+<a href="donors/index.php">Donors</a>
 <div>
     <form method="post" action="index.php"> <!-- change this LATER!!!!!! -->
         <fieldset>
