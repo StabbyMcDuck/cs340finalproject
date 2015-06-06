@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0d5b9802-e4b6-4bb3-9c0f-f9c6c025d66f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/donors/index.php" afterPath="$PROJECT_DIR$/donors/index.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="cs340finalproject.iws" />
@@ -28,18 +28,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="new.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/donors/new.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.375" vertical-offset="786" max-vertical-offset="1290">
-              <caret line="69" column="80" selection-start-line="69" selection-start-column="80" selection-end-line="69" selection-end-column="80" />
-              <folding>
-                <element signature="e#6#92#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="update.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/donors/update.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -73,14 +61,26 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.29761904" vertical-offset="885" max-vertical-offset="2265">
-              <caret line="69" column="33" selection-start-line="69" selection-start-column="33" selection-end-line="69" selection-end-column="33" />
+            <state vertical-scroll-proportion="-6.25" vertical-offset="780" max-vertical-offset="2265">
+              <caret line="62" column="69" selection-start-line="62" selection-start-column="69" selection-end-line="62" selection-end-column="69" />
               <folding>
                 <element signature="e#7#95#0#PHP" expanded="true" />
                 <marker date="1433617566000" expanded="true" signature="1256:1305" placeholder="SELECT first..donors..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/donors/index.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.44642857" vertical-offset="1200" max-vertical-offset="2790">
+              <caret line="95" column="15" selection-start-line="95" selection-start-column="15" selection-end-line="95" selection-end-column="15" />
+              <folding>
+                <element signature="e#6#92#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -153,7 +153,6 @@
         <option value="$PROJECT_DIR$/configuration.php" />
         <option value="$PROJECT_DIR$/donors/update.php" />
         <option value="$PROJECT_DIR$/donors/edit.php" />
-        <option value="$PROJECT_DIR$/donors/index.php" />
         <option value="$PROJECT_DIR$/donors/create.php" />
         <option value="$PROJECT_DIR$/donors/destroy.php" />
         <option value="$PROJECT_DIR$/donors/new.php" />
@@ -161,6 +160,7 @@
         <option value="$PROJECT_DIR$/session/create.php" />
         <option value="$PROJECT_DIR$/session/new.php" />
         <option value="$PROJECT_DIR$/index.php" />
+        <option value="$PROJECT_DIR$/donors/index.php" />
       </list>
     </option>
   </component>
@@ -516,16 +516,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/donors/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-47.64706" vertical-offset="0" max-vertical-offset="2790">
-          <caret line="162" column="23" selection-start-line="162" selection-start-column="23" selection-end-line="162" selection-end-column="23" />
-          <folding>
-            <element signature="e#6#92#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/donors/new.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-10.375" vertical-offset="786" max-vertical-offset="1290">
@@ -610,11 +600,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.29761904" vertical-offset="885" max-vertical-offset="2265">
-          <caret line="69" column="33" selection-start-line="69" selection-start-column="33" selection-end-line="69" selection-end-column="33" />
+        <state vertical-scroll-proportion="-6.25" vertical-offset="780" max-vertical-offset="2265">
+          <caret line="62" column="69" selection-start-line="62" selection-start-column="69" selection-end-line="62" selection-end-column="69" />
           <folding>
             <element signature="e#7#95#0#PHP" expanded="true" />
             <marker date="1433617566000" expanded="true" signature="1256:1305" placeholder="SELECT first..donors..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/donors/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.44642857" vertical-offset="1200" max-vertical-offset="2790">
+          <caret line="95" column="15" selection-start-line="95" selection-start-column="15" selection-end-line="95" selection-end-column="15" />
+          <folding>
+            <element signature="e#6#92#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
