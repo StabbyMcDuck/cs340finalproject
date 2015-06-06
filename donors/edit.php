@@ -78,7 +78,7 @@ if (!($statement = $connection->prepare(
     "SELECT donors.id, " .
     "donors.first_name, " .
     "donors.last_name, " .
-    "donors.dob, " .
+    "donors.dob " .
     "FROM donors " .
     "WHERE donors.id = ?"
 ))
