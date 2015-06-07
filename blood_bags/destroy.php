@@ -20,13 +20,13 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     http_response_code(405);
 }
 
-$blood_type_id = filter_input(INPUT_POST, 'id', FILTER_VALIDATE_INT);
-if ($blood_type_id === null) {
+$blood_bag_id = filter_input(INPUT_POST, 'id', FILTER_VALIDATE_INT);
+if ($blood_bag_id === null) {
     http_response_code(422);
     header('Content-type: application/json');
     $response_array = array(
         'status' => 'error',
-        'message' => 'Blood Type ID not given!'
+        'message' => 'Blood Bag ID not given!'
     );
     echo json_encode($response_array);
     exit;
@@ -53,7 +53,7 @@ if ($connection->connect_error) {
     exit;
 }
 
-if (!($statement = $connection->prepare("DELETE FROM blood_types WHERE blood_types.id = ?"))) {
+if (!($statement = $connection->prepare("DELETE FROM blood_bags WHERE blood_bags.id = ?"))) {
     error_log($connection->error);
     http_response_code(500);
     header('Content-type: application/json');
@@ -65,7 +65,7 @@ if (!($statement = $connection->prepare("DELETE FROM blood_types WHERE blood_typ
     exit;
 }
 
-if (!$statement->bind_param('i', $blood_type_id)) {
+if (!$statement->bind_param('i', $blood_bag_id)) {
     header('Content-type: application/json');
     $response_array = array(
         'status' => 'error',
@@ -91,8 +91,8 @@ $statement->close();
 header('Content-type: application/json');
 $response_array = array(
     'status' => 'success',
-    'id' => $blood_type_id,
-    'message' => 'Blood type removed'
+    'id' => $blood_bag_id,
+    'message' => 'Blood Bag removed'
 );
 echo json_encode($response_array);
 exit;

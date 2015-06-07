@@ -16,37 +16,74 @@ if(!isset($_SESSION['id'])){
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     http_response_code(405);
 }
-$blood_group = filter_input(INPUT_POST, 'blood_group', FILTER_DEFAULT);
-if ($blood_group === null) {
+
+$collection_datetime = filter_input(INPUT_POST, 'collection_datetime', FILTER_DEFAULT);
+if ($collection_datetime === null) {
     http_response_code(422);
     header('Content-type: application/json');
     $response_array = array(
         'status' => 'error',
-        'message' => 'Blood group not entered!'
+        'message' => 'Collection date/time not entered!'
     );
     echo json_encode($response_array);
     exit;
 }
 
-$rh_factor = filter_input(INPUT_POST, 'rh_factor', FILTER_DEFAULT);
-if ($rh_factor === null) {
+$collection_datetime_parsed = date_parse($collection_datetime);
+if (!checkdate($collection_datetime_parsed['month'], $collection_datetime_parsed['day'], $collection_datetime_parsed['year'])) {
     http_response_code(422);
     header('Content-type: application/json');
     $response_array = array(
         'status' => 'error',
-        'message' => 'RH factor not entered!'
+        'message' => 'Date entered is invalid!'
     );
     echo json_encode($response_array);
     exit;
 }
 
-$rare_antigen = filter_input(INPUT_POST, 'rare_antigen', FILTER_DEFAULT);
-if ($rare_antigen === null) {
+$fk_clinic_id = filter_input(INPUT_POST, 'fk_clinic_id', FILTER_VALIDATE_INT);
+if ($fk_clinic_id === null) {
     http_response_code(422);
     header('Content-type: application/json');
     $response_array = array(
         'status' => 'error',
-        'message' => 'Rare antigen(s) not entered!'
+        'message' => 'Clinic not entered!'
+    );
+    echo json_encode($response_array);
+    exit;
+}
+
+$fk_nurse_id = filter_input(INPUT_POST, 'fk_nurse_id', FILTER_VALIDATE_INT);
+if ($fk_nurse_id === null) {
+    http_response_code(422);
+    header('Content-type: application/json');
+    $response_array = array(
+        'status' => 'error',
+        'message' => 'Nurse not entered!'
+    );
+    echo json_encode($response_array);
+    exit;
+}
+
+$fk_donor_id = filter_input(INPUT_POST, 'fk_donor_id', FILTER_VALIDATE_INT);
+if ($fk_donor_id === null) {
+    http_response_code(422);
+    header('Content-type: application/json');
+    $response_array = array(
+        'status' => 'error',
+        'message' => 'Donor not entered!'
+    );
+    echo json_encode($response_array);
+    exit;
+}
+
+$fk_blood_type_id = filter_input(INPUT_POST, 'fk_blood_type_id', FILTER_VALIDATE_INT);
+if ($fk_blood_type_id === null) {
+    http_response_code(422);
+    header('Content-type: application/json');
+    $response_array = array(
+        'status' => 'error',
+        'message' => 'Blood type not entered!'
     );
     echo json_encode($response_array);
     exit;
@@ -72,7 +109,10 @@ if ($connection->connect_error) {
     exit;
 }
 
-if (!($statement = $connection->prepare("INSERT INTO blood_types(blood_group, rh_factor, rare_antigen) VALUES(?,?,?) "))) {
+if (!($statement = $connection->prepare(
+    "INSERT INTO blood_bags(collection_datetime, fk_clinic_id, fk_nurse_id, fk_donor_id, fk_blood_type_id) " .
+    "VALUES(?,?,?,?,?) "
+))) {
     http_response_code(500);
     header('Content-type: application/json');
     $response_array = array(
@@ -83,7 +123,7 @@ if (!($statement = $connection->prepare("INSERT INTO blood_types(blood_group, rh
     exit;
 }
 
-if (!$statement->bind_param('sss', $blood_group, $rh_factor, $rare_antigen)) {
+if (!$statement->bind_param('siiii', $collection_datetime, $fk_clinic_id, $fk_nurse_id, $fk_donor_id, $fk_blood_type_id)) {
     header('Content-type: application/json');
     $response_array = array(
         'status' => 'error',

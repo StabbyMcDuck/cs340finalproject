@@ -42,7 +42,7 @@ if (!isset($_SESSION['id'])) {
                     alert(xhr.responseJSON.message);
                 },
                 success: function (responseJSON, statusText, xhr, formElement) {
-                    var tr = $('#donor-' + responseJSON.id);
+                    var tr = $('#blood-bag-' + responseJSON.id);
                     // see http://stackoverflow.com/a/15604153
                     //change the background color to red before removing
                     tr.css("background-color", "#FF3700");
@@ -68,11 +68,11 @@ if (!isset($_SESSION['id'])) {
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Donor List</a>
+            <a class="navbar-brand" href="#">Blood Bags List</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="new.php">Add Donor</a></li>
+                <li><a href="new.php">Add Blood Bag</a></li>
                 <li><a href="../session/destroy.php">Logout</a></li>
             </ul>
         </div>
@@ -90,11 +90,29 @@ $connection = new mysqli(
     $database_configuration['database']
 );
 if (!($statement = $connection->prepare(
-    "SELECT donors.id, " .
+    "SELECT blood_bags.id, " .
+    "blood_bags.collection_datetime, " .
+    "clinics.id, " .
+    "clinics.location, " .
+    "nurses.id, " .
+    "nurses.first_name, " .
+    "nurses.last_name, " .
+    "donors.id, " .
     "donors.first_name, " .
     "donors.last_name, " .
-    "donors.dob " .
-    "FROM donors"
+    "blood_types.id, " .
+    "blood_types.blood_group, " .
+    "blood_types.rh_factor, " .
+    "blood_types.rare_antigen " .
+    "FROM blood_bags" .
+    "INNER JOIN clinics " .
+    "ON clinics.id = blood_bags.FK_clinic_id " .
+    "INNER JOIN nurses " .
+    "ON nurses.id = blood_bags.FK_nurse_id " .
+    "INNER JOIN donors " .
+    "ON donors.id = blood_bags.FK_donor_id " .
+    "INNER JOIN blood_types " .
+    "ON blood_types.id = blood_bags.FK_blood_type_id "
 ))
 ) {
     error_log($connection->error);
@@ -110,12 +128,36 @@ if (!$statement->execute()) {
     <?php
     exit;
 }
-$out_id = null;
-$out_first_name = null;
-$out_last_name = null;
-$out_dob = null;
+$out_blood_bags_id = null;
+$out_blood_bags_collection_datetime = null;
+$out_clinics_id = null;
+$out_clinics_location = null;
+$out_nurses_id = null;
+$out_nurses_first_name = null;
+$out_nurses_last_name = null;
+$out_donors_id = null;
+$out_donors_first_name = null;
+$out_donors_last_name = null;
+$out_blood_types_id = null;
+$out_blood_types_blood_group = null;
+$out_blood_types_rh_factor = null;
+$out_blood_types_rare_antigen = null;
 
-if (!$statement->bind_result($out_id, $out_first_name, $out_last_name, $out_dob)) {
+if (!$statement->bind_result(
+    $out_blood_bags_id,
+    $out_blood_bags_collection_datetime,
+    $out_clinics_id,
+    $out_clinics_location,
+    $out_nurses_id,
+    $out_nurses_first_name,
+    $out_nurses_last_name,
+    $out_donors_id,
+    $out_donors_first_name,
+    $out_donors_last_name,
+    $out_blood_types_id,
+    $out_blood_types_blood_group,
+    $out_blood_types_rh_factor,
+    $out_blood_types_rare_antigen)){
     error_log($statement->error);
     ?>
     <p>Try again later (4)</p>
@@ -128,17 +170,35 @@ if (!$statement->bind_result($out_id, $out_first_name, $out_last_name, $out_dob)
     <table class="jumbotron table-bordered table-hover">
         <thead>
         <tr>
+            <th colspan="1">
+                Blood Bags
+            </th>
+            <th colspan="1">
+                Clinic
+            </th>
+            <th colspan="2">
+                Nurse
+            </th>
+            <th colspan="2">
+                Donor
+            </th>
             <th colspan="3">
-                Donors
+                Blood Type
             </th>
             <th colspan="2">
                 Actions
             </th>
         </tr>
         <tr>
-            <th>Donor First Name</th>
-            <th>Donor Last Name</th>
-            <th>Donor Date of Birth</th>
+            <th>Collection Date/Time</th>
+            <th>Location</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Blood Group</th>
+            <th>RH Factor</th>
+            <th>Rare Antigen'/</th>
             <th>Edit</th>
             <th>Delete</th>
         </tr>
@@ -147,25 +207,43 @@ if (!$statement->bind_result($out_id, $out_first_name, $out_last_name, $out_dob)
         <?php
         while ($statement->fetch()) {
             ?>
-            <tr id="donor-<?php echo $out_id ?>">
+            <tr id="donor-<?php echo $out_blood_bags_id ?>">
                 <td>
-                    <?php echo $out_first_name ?>
+                    <?php echo $out_blood_bags_collection_datetime ?>
                 </td>
                 <td>
-                    <?php echo $out_last_name ?>
+                    <?php echo $out_clinics_location ?>
                 </td>
                 <td>
-                    <?php echo $out_dob ?>
+                    <?php echo $out_nurses_first_name ?>
+                </td>
+                <td>
+                    <?php echo $out_nurses_last_name ?>
+                </td>
+                <td>
+                    <?php echo $out_donors_first_name?>
+                </td>
+                <td>
+                    <?php echo $out_donors_last_name ?>
+                </td>
+                <td>
+                    <?php echo $out_blood_types_blood_group?>
+                </td>
+                <td>
+                    <?php echo $out_blood_types_rh_factor ?>
+                </td>
+                <td>
+                    <?php echo $out_blood_types_rare_antigen ?>
                 </td>
                 <td>
                     <form action="edit.php" class="edit" method="get">
-                        <input type="hidden" name="id" value="<?php echo $out_id ?>">
+                        <input type="hidden" name="id" value="<?php echo $out_blood_bags_id ?>">
                         <button class="btn btn-sm" type="submit">Edit</button>
                     </form>
                 </td>
                 <td>
                     <form action="destroy.php" class="delete" method="post">
-                        <input type="hidden" name="id" value="<?php echo $out_id ?>">
+                        <input type="hidden" name="id" value="<?php echo $out_blood_bags_id ?>">
                         <button class="btn btn-sm" type="submit">Delete</button>
                     </form>
                 </td>
