@@ -144,7 +144,7 @@ while ($statement->fetch()) {
                         </label>
                     </li>
                     <li>
-                        <input type="radio" name="blood_group" id="blood-group-b" value="b"
+                        <input type="radio" name="blood_group" id="blood-group-b" value="B"
                             <?php
                             if($out_blood_group == 'B'){
                                 ?> checked="checked"<?php
@@ -156,7 +156,7 @@ while ($statement->fetch()) {
                         </label>
                     </li>
                     <li>
-                        <input type="radio" name="blood_group" id="blood-group-ab" value="ab"
+                        <input type="radio" name="blood_group" id="blood-group-ab" value="AB"
                             <?php
                             if($out_blood_group == 'AB'){
                                 ?> checked="checked"<?php
@@ -167,7 +167,7 @@ while ($statement->fetch()) {
                         </label>
                     </li>
                     <li>
-                        <input type="radio" name="blood_group" id="blood-group-o" value="o"
+                        <input type="radio" name="blood_group" id="blood-group-o" value="O"
                             <?php
                             if($out_blood_group == 'O'){
                                 ?> checked="checked"<?php
@@ -186,9 +186,9 @@ while ($statement->fetch()) {
                 </legend>
                 <ul class="radio">
                     <li>
-                        <input type="radio" name="rh_factor" id="rh-factor-positive" value="positive"
+                        <input type="radio" name="rh_factor" id="rh-factor-positive" value="Positive"
                             <?php
-                            if($out_rh_factor == 'positive'){
+                            if($out_rh_factor == 'Positive'){
                                 ?> checked="checked"<?php
                             }
                             ?>/>
@@ -197,9 +197,9 @@ while ($statement->fetch()) {
                         </label>
                     </li>
                     <li>
-                        <input type="radio" name="rh_factor" id="rh-factor-negative" value="negative"
+                        <input type="radio" name="rh_factor" id="rh-factor-negative" value="Negative"
                             <?php
-                            if($out_rh_factor == 'negative'){
+                            if($out_rh_factor == 'Negative'){
                                 ?> checked="checked"<?php
                             }
                             ?>/>

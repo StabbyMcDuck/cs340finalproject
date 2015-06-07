@@ -71,19 +71,19 @@ if(!isset($_SESSION['id'])){
                     </label>
                 </li>
                 <li>
-                    <input type="radio" name="blood_group" id="blood-group-b" value="b"/>
+                    <input type="radio" name="blood_group" id="blood-group-b" value="B"/>
                     <label for="blood-group-b">
                         B
                     </label>
                 </li>
                 <li>
-                    <input type="radio" name="blood_group" id="blood-group-ab" value="ab"/>
+                    <input type="radio" name="blood_group" id="blood-group-ab" value="AB"/>
                     <label for="blood-group-ab">
                         AB
                     </label>
                 </li>
                 <li>
-                    <input type="radio" name="blood_group" id="blood-group-o" value="o"/>
+                    <input type="radio" name="blood_group" id="blood-group-o" value="O"/>
                     <label for="blood-group-o">
                         O
                     </label>
@@ -97,13 +97,13 @@ if(!isset($_SESSION['id'])){
             </legend>
             <ul class="radio">
                 <li>
-                    <input type="radio" name="rh_factor" id="rh-factor-positive" value="positive"/>
+                    <input type="radio" name="rh_factor" id="rh-factor-positive" value="Positive"/>
                     <label for="rh-factor-positive">
                         Positive
                     </label>
                 </li>
                 <li>
-                    <input type="radio" name="rh_factor" id="rh-factor-negative" value="negative"/>
+                    <input type="radio" name="rh_factor" id="rh-factor-negative" value="Negative"/>
                     <label for="rh-factor-negative">
                         Negative
                     </label>
