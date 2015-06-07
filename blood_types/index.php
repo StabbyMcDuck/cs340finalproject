@@ -23,7 +23,7 @@ if (!isset($_SESSION['id'])) {
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Donors</title>
+    <title>Blood Type</title>
 
     <!-- Bootstrap core CSS -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
@@ -68,11 +68,11 @@ if (!isset($_SESSION['id'])) {
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Donor List</a>
+            <a class="navbar-brand" href="#">Blood Types List</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="new.php">Add Donor</a></li>
+                <li><a href="new.php">Add Blood Type</a></li>
                 <li><a href="../session/destroy.php">Logout</a></li>
             </ul>
         </div>
@@ -147,7 +147,7 @@ if (!$statement->bind_result($out_id, $out_blood_group, $out_rh_factor, $out_rar
         <?php
         while ($statement->fetch()) {
             ?>
-            <tr id="donor-<?php echo $out_id ?>">
+            <tr id="blood_type-<?php echo $out_id ?>">
                 <td>
                     <?php echo $out_blood_group ?>
                 </td>
