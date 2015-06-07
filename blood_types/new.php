@@ -25,7 +25,7 @@ if(!isset($_SESSION['id'])){
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>New Blood Types</title>
+    <title>New Blood Type</title>
 
     <!-- Bootstrap core CSS -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
@@ -111,8 +111,11 @@ if(!isset($_SESSION['id'])){
             </ul>
         </fieldset>
 
-        <label for="rare_antigen" class="sr-only">Rare Antigen</label>
-        <input type="text" id="rare_antigen" class="form-control" placeholder="rare_antigen" required autofocus name="rare_antigen">
+        <fieldset>
+            <legend>Rare Antigen (not required)</legend>
+            <label for="rare_antigen" class="sr-only">Rare Antigen</label>
+            <input type="text" id="rare_antigen" class="form-control" placeholder="rare_antigen" autofocus name="rare_antigen">
+        </fieldset>
 
         <button class="btn btn-lg btn-primary btn-block" type="submit">Add Blood Type</button>
 
