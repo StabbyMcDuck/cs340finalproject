@@ -76,7 +76,7 @@ $connection = new mysqli(
 
 if (!($statement = $connection->prepare(
     "SELECT clinics.id, " .
-    "clinics.location, " .
+    "clinics.location " .
     "FROM clinics " .
     "WHERE clinics.id = ?"
 ))
