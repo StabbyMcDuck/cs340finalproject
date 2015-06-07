@@ -65,7 +65,7 @@ if (!($statement = $connection->prepare("DELETE FROM clinics WHERE clinics.id = 
     exit;
 }
 
-if (!$statement->bind_param('i', $clinics_id)) {
+if (!$statement->bind_param('i', $clinic_id)) {
     header('Content-type: application/json');
     $response_array = array(
         'status' => 'error',
@@ -91,7 +91,7 @@ $statement->close();
 header('Content-type: application/json');
 $response_array = array(
     'status' => 'success',
-    'id' => $clinics_id,
+    'id' => $clinic_id,
     'message' => 'Clinic removed'
 );
 echo json_encode($response_array);
