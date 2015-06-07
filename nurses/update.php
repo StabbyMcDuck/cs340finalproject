@@ -78,7 +78,7 @@ if (!($statement = $connection->prepare("UPDATE nurses SET first_name = ?, last_
     echo json_encode($response_array);
     exit;
 }
-if (!$statement->bind_param('sssi', $first_name, $last_name, $nurse_id)) {
+if (!$statement->bind_param('ssi', $first_name, $last_name, $nurse_id)) {
     header('Content-type: application/json');
     $response_array = array(
         'status' => 'error',
