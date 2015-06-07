@@ -147,7 +147,7 @@ if (!$statement->bind_result($out_id, $out_blood_group, $out_rh_factor, $out_rar
         <?php
         while ($statement->fetch()) {
             ?>
-            <tr id="blood_type-<?php echo $out_id ?>">
+            <tr id="blood-type-<?php echo $out_id ?>">
                 <td>
                     <?php echo $out_blood_group ?>
                 </td>
