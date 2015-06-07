@@ -124,7 +124,7 @@ if (!$statement->bind_result($out_id, $out_location)) {
     <table class="jumbotron table-bordered table-hover">
         <thead>
         <tr>
-            <th colspan="3">
+            <th colspan="1">
                 Clinics
             </th>
             <th colspan="2">
