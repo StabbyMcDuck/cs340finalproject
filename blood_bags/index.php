@@ -104,7 +104,7 @@ if (!($statement = $connection->prepare(
     "blood_types.blood_group, " .
     "blood_types.rh_factor, " .
     "blood_types.rare_antigen " .
-    "FROM blood_bags" .
+    "FROM blood_bags " .
     "INNER JOIN clinics " .
     "ON clinics.id = blood_bags.FK_clinic_id " .
     "INNER JOIN nurses " .
