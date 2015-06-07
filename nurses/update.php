@@ -50,30 +50,6 @@ if ($last_name === null) {
     exit;
 }
 
-$dob = filter_input(INPUT_POST, 'dob', FILTER_DEFAULT);
-if ($dob === null) {
-    http_response_code(422);
-    header('Content-type: application/json');
-    $response_array = array(
-        'status' => 'error',
-        'message' => 'Date of birth not entered!'
-    );
-    echo json_encode($response_array);
-    exit;
-}
-
-$dob_parsed = date_parse($dob);
-if (!checkdate($dob_parsed['month'], $dob_parsed['day'], $dob_parsed['year'])) {
-    http_response_code(422);
-    header('Content-type: application/json');
-    $response_array = array(
-        'status' => 'error',
-        'message' => 'Date entered is invalid!'
-    );
-    echo json_encode($response_array);
-    exit;
-}
-
 include '../configuration.php';
 // Create connection
 $connection = new mysqli(
