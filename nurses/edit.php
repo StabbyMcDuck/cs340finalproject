@@ -77,7 +77,7 @@ $connection = new mysqli(
 if (!($statement = $connection->prepare(
     "SELECT nurses.id, " .
     "nurses.first_name, " .
-    "nurses.last_name, " .
+    "nurses.last_name " .
     "FROM nurses " .
     "WHERE nurses.id = ?"
 ))
@@ -109,9 +109,8 @@ if (!$statement->execute()) {
 $out_id = null;
 $out_first_name = null;
 $out_last_name = null;
-$out_dob = null;
 
-if (!$statement->bind_result($out_id, $out_first_name, $out_last_name, $out_dob)) {
+if (!$statement->bind_result($out_id, $out_first_name, $out_last_name)) {
     error_log($statement->error);
     ?>
     <p>Try again later (4)</p>
