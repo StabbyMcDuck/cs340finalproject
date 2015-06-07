@@ -6,34 +6,53 @@
  * Time: 6:11 PM
  */
 
-error_reporting(E_ALL);
 
 session_start();
-
 if(!isset($_SESSION['id'])){
     //redirect them back to login page
     header("Location: ../session/new.php"); /* Redirect browser */
     exit();
 }
-
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     http_response_code(405);
 }
-
-$blood_type_id = filter_input(INPUT_POST, 'id', FILTER_VALIDATE_INT);
-if ($blood_type_id === null) {
+$blood_group = filter_input(INPUT_POST, 'blood_group', FILTER_DEFAULT);
+if ($blood_group === null) {
     http_response_code(422);
     header('Content-type: application/json');
     $response_array = array(
         'status' => 'error',
-        'message' => 'Blood Type ID not given!'
+        'message' => 'Blood group not entered!'
+    );
+    echo json_encode($response_array);
+    exit;
+}
+
+$rh_factor = filter_input(INPUT_POST, 'rh_factor', FILTER_DEFAULT);
+if ($rh_factor === null) {
+    http_response_code(422);
+    header('Content-type: application/json');
+    $response_array = array(
+        'status' => 'error',
+        'message' => 'RH factor not entered!'
+    );
+    echo json_encode($response_array);
+    exit;
+}
+
+$rare_antigen = filter_input(INPUT_POST, 'rare_antigen', FILTER_DEFAULT);
+if ($rare_antigen === null) {
+    http_response_code(422);
+    header('Content-type: application/json');
+    $response_array = array(
+        'status' => 'error',
+        'message' => 'Rare antigen(s) not entered!'
     );
     echo json_encode($response_array);
     exit;
 }
 
 include '../configuration.php';
-
 // Create connection
 $connection = new mysqli(
     $database_configuration['servername'],
@@ -53,8 +72,7 @@ if ($connection->connect_error) {
     exit;
 }
 
-if (!($statement = $connection->prepare("DELETE FROM blood_types WHERE blood_types.id = ?"))) {
-    error_log($connection->error);
+if (!($statement = $connection->prepare("INSERT INTO blood_types(blood_group, rh_factor, rare_antigen) VALUES(?,?,?) "))) {
     http_response_code(500);
     header('Content-type: application/json');
     $response_array = array(
@@ -65,7 +83,7 @@ if (!($statement = $connection->prepare("DELETE FROM blood_types WHERE blood_typ
     exit;
 }
 
-if (!$statement->bind_param('i', $blood_type_id)) {
+if (!$statement->bind_param('sss', $blood_group, $rh_factor, $rare_antigen)) {
     header('Content-type: application/json');
     $response_array = array(
         'status' => 'error',
@@ -74,10 +92,8 @@ if (!$statement->bind_param('i', $blood_type_id)) {
     echo json_encode($response_array);
     exit;
 }
-
 if (!$statement->execute()) {
     error_log($statement->error);
-
     http_response_code(500);
     header('Content-type: application/json');
     $response_array = array(
@@ -91,8 +107,7 @@ $statement->close();
 header('Content-type: application/json');
 $response_array = array(
     'status' => 'success',
-    'id' => $blood_type_id,
-    'message' => 'Blood type removed'
+    'message' => 'Blood Group registered'
 );
 echo json_encode($response_array);
 exit;

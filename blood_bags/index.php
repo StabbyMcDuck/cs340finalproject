@@ -42,7 +42,7 @@ if (!isset($_SESSION['id'])) {
                     alert(xhr.responseJSON.message);
                 },
                 success: function (responseJSON, statusText, xhr, formElement) {
-                    var tr = $('#blood-type-' + responseJSON.id);
+                    var tr = $('#donor-' + responseJSON.id);
                     // see http://stackoverflow.com/a/15604153
                     //change the background color to red before removing
                     tr.css("background-color", "#FF3700");
@@ -90,11 +90,11 @@ $connection = new mysqli(
     $database_configuration['database']
 );
 if (!($statement = $connection->prepare(
-    "SELECT blood_types.id, " .
-    "blood_types.blood_group, " .
-    "blood_types.rh_factor, " .
-    "blood_types.rare_antigen " .
-    "FROM blood_types"
+    "SELECT donors.id, " .
+    "donors.first_name, " .
+    "donors.last_name, " .
+    "donors.dob " .
+    "FROM donors"
 ))
 ) {
     error_log($connection->error);
@@ -111,11 +111,11 @@ if (!$statement->execute()) {
     exit;
 }
 $out_id = null;
-$out_blood_group = null;
-$out_rh_factor = null;
-$out_rare_antigen = null;
+$out_first_name = null;
+$out_last_name = null;
+$out_dob = null;
 
-if (!$statement->bind_result($out_id, $out_blood_group, $out_rh_factor, $out_rare_antigen)) {
+if (!$statement->bind_result($out_id, $out_first_name, $out_last_name, $out_dob)) {
     error_log($statement->error);
     ?>
     <p>Try again later (4)</p>
@@ -129,16 +129,16 @@ if (!$statement->bind_result($out_id, $out_blood_group, $out_rh_factor, $out_rar
         <thead>
         <tr>
             <th colspan="3">
-                Blood Type
+                Donors
             </th>
             <th colspan="2">
                 Actions
             </th>
         </tr>
         <tr>
-            <th>Blood Group</th>
-            <th>RH Factory</th>
-            <th>Rare Antigen</th>
+            <th>Donor First Name</th>
+            <th>Donor Last Name</th>
+            <th>Donor Date of Birth</th>
             <th>Edit</th>
             <th>Delete</th>
         </tr>
@@ -149,13 +149,13 @@ if (!$statement->bind_result($out_id, $out_blood_group, $out_rh_factor, $out_rar
             ?>
             <tr id="donor-<?php echo $out_id ?>">
                 <td>
-                    <?php echo $out_blood_group ?>
+                    <?php echo $out_first_name ?>
                 </td>
                 <td>
-                    <?php echo $out_rh_factor ?>
+                    <?php echo $out_last_name ?>
                 </td>
                 <td>
-                    <?php echo $out_rare_antigen ?>
+                    <?php echo $out_dob ?>
                 </td>
                 <td>
                     <form action="edit.php" class="edit" method="get">

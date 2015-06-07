@@ -16,53 +16,31 @@ if(!isset($_SESSION['id'])){
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     http_response_code(405);
 }
-$first_name = filter_input(INPUT_POST, 'first_name', FILTER_DEFAULT);
-if ($first_name === null) {
+$blood_group = filter_input(INPUT_POST, 'blood_group', FILTER_DEFAULT);
+if ($blood_group === null) {
     http_response_code(422);
     header('Content-type: application/json');
     $response_array = array(
         'status' => 'error',
-        'message' => 'First name not entered!'
+        'message' => 'Blood group not entered!'
     );
     echo json_encode($response_array);
     exit;
 }
 
-$last_name = filter_input(INPUT_POST, 'last_name', FILTER_DEFAULT);
-if ($last_name === null) {
+$rh_factor = filter_input(INPUT_POST, 'rh_factor', FILTER_DEFAULT);
+if ($rh_factor === null) {
     http_response_code(422);
     header('Content-type: application/json');
     $response_array = array(
         'status' => 'error',
-        'message' => 'Last name not entered!'
+        'message' => 'RH factor not entered!'
     );
     echo json_encode($response_array);
     exit;
 }
 
-$dob = filter_input(INPUT_POST, 'dob', FILTER_DEFAULT);
-if ($dob === null) {
-    http_response_code(422);
-    header('Content-type: application/json');
-    $response_array = array(
-        'status' => 'error',
-        'message' => 'Date of birth not entered!'
-    );
-    echo json_encode($response_array);
-    exit;
-}
-
-$dob_parsed = date_parse($dob);
-if (!checkdate($dob_parsed['month'], $dob_parsed['day'], $dob_parsed['year'])) {
-    http_response_code(422);
-    header('Content-type: application/json');
-    $response_array = array(
-        'status' => 'error',
-        'message' => 'Date entered is invalid!'
-    );
-    echo json_encode($response_array);
-    exit;
-}
+$rare_antigen = filter_input(INPUT_POST, 'rare_antigen', FILTER_DEFAULT);
 
 include '../configuration.php';
 // Create connection
@@ -84,7 +62,7 @@ if ($connection->connect_error) {
     exit;
 }
 
-if (!($statement = $connection->prepare("INSERT INTO donors(first_name, last_name, dob) VALUES(?,?,?) "))) {
+if (!($statement = $connection->prepare("INSERT INTO blood_types(blood_group, rh_factor, rare_antigen) VALUES(?,?,?) "))) {
     http_response_code(500);
     header('Content-type: application/json');
     $response_array = array(
@@ -95,7 +73,7 @@ if (!($statement = $connection->prepare("INSERT INTO donors(first_name, last_nam
     exit;
 }
 
-if (!$statement->bind_param('sss', $first_name, $last_name, $dob)) {
+if (!$statement->bind_param('sss', $blood_group, $rh_factor, $rare_antigen)) {
     header('Content-type: application/json');
     $response_array = array(
         'status' => 'error',
@@ -119,7 +97,7 @@ $statement->close();
 header('Content-type: application/json');
 $response_array = array(
     'status' => 'success',
-    'message' => 'Donor registered'
+    'message' => 'Blood Group registered'
 );
 echo json_encode($response_array);
 exit;

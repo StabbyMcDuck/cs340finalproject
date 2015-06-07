@@ -27,13 +27,13 @@ if (!isset($_SESSION['id'])) {
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Edit Yarn</title>
+    <title>Edit Blood Type</title>
 
     <!-- Bootstrap core CSS -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="../css/donors/new.css" rel="stylesheet">
+    <link href="../css/blood_types/new.css" rel="stylesheet">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="http://malsup.github.com/jquery.form.js"></script>
@@ -56,10 +56,10 @@ if (!isset($_SESSION['id'])) {
 
 <body>
 <?php
-$donor_id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
-if ($donor_id === null) {
+$blood_type_id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
+if ($blood_type_id === null) {
     ?>
-    <p>No donor id given to edit!</p>
+    <p>No blood type id given to edit!</p>
     <?php
     exit;
 }
@@ -75,12 +75,12 @@ $connection = new mysqli(
 );
 
 if (!($statement = $connection->prepare(
-    "SELECT donors.id, " .
-    "donors.first_name, " .
-    "donors.last_name, " .
-    "donors.dob " .
-    "FROM donors " .
-    "WHERE donors.id = ?"
+    "SELECT blood_types.id, " .
+    "blood_types.blood_group, " .
+    "blood_types.rh_factor, " .
+    "blood_types.rare_antigen " .
+    "FROM blood_types " .
+    "WHERE blood_types.id = ?"
 ))
 ) {
     error_log($connection->error);
@@ -90,7 +90,7 @@ if (!($statement = $connection->prepare(
     exit;
 }
 
-if (!$statement->bind_param('i', $donor_id)) {
+if (!$statement->bind_param('i', $blood_type_id)) {
     error_log($statement->error);
     ?>
     <p>Try again later (2)</p>
@@ -108,11 +108,11 @@ if (!$statement->execute()) {
 }
 
 $out_id = null;
-$out_first_name = null;
-$out_last_name = null;
-$out_dob = null;
+$out_blood_group = null;
+$out_rh_factor = null;
+$out_rare_antigen = null;
 
-if (!$statement->bind_result($out_id, $out_first_name, $out_last_name, $out_dob)) {
+if (!$statement->bind_result($out_id, $out_blood_group, $out_rh_factor, $out_rare_antigen)) {
     error_log($statement->error);
     ?>
     <p>Try again later (4)</p>
@@ -124,22 +124,97 @@ while ($statement->fetch()) {
     <div class="container">
 
         <form action="update.php" class="form-signin" id="form" method="post">
-            <h2 class="form-signin-heading">Edit Donor</h2>
+            <h2 class="form-signin-heading">Edit Blood Group</h2>
             <input type="hidden" name="id" value="<?php echo $out_id ?>">
 
-            <label for="first_name" class="sr-only">First Name</label>
-            <input type="text" id="first_name" class="form-control" placeholder="First Name" required autofocus
-                   name="first_name" value="<?php echo $out_first_name ?>">
+            <fieldset>
+                <legend>
+                    Blood Group
+                </legend>
+                <ul class="radio">
+                    <li>
+                        <input type="radio" name="blood_group" id="blood-group-a" value="A"
+                            <?php
+                        if($out_blood_group == 'A'){
+                            ?> checked="checked"<?php
+                        }
+                        ?>/>
+                        <label for="blood-group-a">
+                            A
+                        </label>
+                    </li>
+                    <li>
+                        <input type="radio" name="blood_group" id="blood-group-b" value="b"
+                            <?php
+                            if($out_blood_group == 'B'){
+                                ?> checked="checked"<?php
+                            }
+                            ?>
+                            />
+                        <label for="blood-group-b">
+                            B
+                        </label>
+                    </li>
+                    <li>
+                        <input type="radio" name="blood_group" id="blood-group-ab" value="ab"
+                            <?php
+                            if($out_blood_group == 'AB'){
+                                ?> checked="checked"<?php
+                            }
+                            ?>/>
+                        <label for="blood-group-ab">
+                            AB
+                        </label>
+                    </li>
+                    <li>
+                        <input type="radio" name="blood_group" id="blood-group-o" value="o"
+                            <?php
+                            if($out_blood_group == 'O'){
+                                ?> checked="checked"<?php
+                            }
+                            ?>/>
+                        <label for="blood-group-o">
+                            O
+                        </label>
+                    </li>
+                </ul>
+            </fieldset>
 
-            <label for="last_name" class="sr-only">Last Name</label>
-            <input type="text" id="last_name" class="form-control" placeholder="Last Name" required autofocus
-                   name="last_name" value="<?php echo $out_last_name ?>">
+            <fieldset>
+                <legend>
+                    Rh Factor
+                </legend>
+                <ul class="radio">
+                    <li>
+                        <input type="radio" name="rh_factor" id="rh-factor-positive" value="positive"
+                            <?php
+                            if($out_rh_factor == 'positive'){
+                                ?> checked="checked"<?php
+                            }
+                            ?>/>
+                        <label for="rh-factor-positive">
+                            Positive
+                        </label>
+                    </li>
+                    <li>
+                        <input type="radio" name="rh_factor" id="rh-factor-negative" value="negative"
+                            <?php
+                            if($out_rh_factor == 'negative'){
+                                ?> checked="checked"<?php
+                            }
+                            ?>/>
+                        <label for="rh-factor-negative">
+                            Negative
+                        </label>
+                    </li>
+                </ul>
+            </fieldset>
 
-            <label for="dob" class="sr-only">Date of Birth</label>
-            <input type="date" id="dob" class="form-control" placeholder="Date of Birth" required autofocus
-                   name="dob" value="<?php echo $out_dob ?>">
+            <label for="rare_antigen" class="sr-only">Rare Antigen</label>
+            <input type="text" id="rare_antigen" class="form-control" placeholder="rare_antigen" required autofocus name="rare_antigen">
 
-            <button class="btn btn-lg btn-primary btn-block" type="submit">Update Donor</button>
+
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Update Blood Group</button>
 
             <p id="form-errors">
 

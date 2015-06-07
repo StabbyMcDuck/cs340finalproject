@@ -59,57 +59,11 @@ if(!isset($_SESSION['id'])){
     <form action="create.php" class="form-signin" id="form" method="post">
         <h2 class="form-signin-heading">Add Blood Type</h2>
 
-        <fieldset>
-            <legend>
-                Blood Group
-            </legend>
-            <ul class="radio">
-                <li>
-                    <input type="radio" name="blood_group" id="blood-group-a" value="A"/>
-                    <label for="blood-group-a">
-                        A
-                    </label>
-                </li>
-                <li>
-                    <input type="radio" name="blood_group" id="blood-group-b" value="b"/>
-                    <label for="blood-group-b">
-                        B
-                    </label>
-                </li>
-                <li>
-                    <input type="radio" name="blood_group" id="blood-group-ab" value="ab"/>
-                    <label for="blood-group-ab">
-                        AB
-                    </label>
-                </li>
-                <li>
-                    <input type="radio" name="blood_group" id="blood-group-o" value="o"/>
-                    <label for="blood-group-o">
-                        O
-                    </label>
-                </li>
-            </ul>
-        </fieldset>
+        <label for="blood_group" class="sr-only">Blood Group</label>
+        <input type="radio" id="blood_group" class="form-control" placeholder="blood_group" required autofocus name="blood_group">
 
-        <fieldset>
-            <legend>
-                Rh Factor
-            </legend>
-            <ul class="radio">
-                <li>
-                    <input type="radio" name="rh_factor" id="rh-factor-positive" value="positive"/>
-                    <label for="rh-factor-positive">
-                        Positive
-                    </label>
-                </li>
-                <li>
-                    <input type="radio" name="rh_factor" id="rh-factor-negative" value="negative"/>
-                    <label for="rh-factor-negative">
-                        Negative
-                    </label>
-                </li>
-            </ul>
-        </fieldset>
+        <label for="rh_factor" class="sr-only">RH Factor</label>
+        <input type="radio" id="rh_factor" class="form-control" placeholder="rh_factor" required autofocus name="rh_factor">
 
         <label for="rare_antigen" class="sr-only">Rare Antigen</label>
         <input type="text" id="rare_antigen" class="form-control" placeholder="rare_antigen" required autofocus name="rare_antigen">

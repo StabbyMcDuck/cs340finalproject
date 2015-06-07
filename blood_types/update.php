@@ -16,63 +16,42 @@ if(!isset($_SESSION['id'])){
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     http_response_code(405);
 }
-$donor_id = filter_input(INPUT_POST, 'id', FILTER_VALIDATE_INT);
-if ($donor_id === null) {
+$blood_types_id = filter_input(INPUT_POST, 'id', FILTER_VALIDATE_INT);
+if ($blood_types_id === null) {
     http_response_code(422);
     header('Content-type: application/json');
     $response_array = array(
         'status' => 'error',
-        'message' => 'Donor id not provided!'
+        'message' => 'Blood types id not provided!'
     );
     echo json_encode($response_array);
     exit;
 }
-$first_name = filter_input(INPUT_POST, 'first_name', FILTER_DEFAULT);
-if ($first_name === null) {
+$blood_group = filter_input(INPUT_POST, 'blood_group', FILTER_DEFAULT);
+if ($blood_group === null) {
     http_response_code(422);
     header('Content-type: application/json');
     $response_array = array(
         'status' => 'error',
-        'message' => 'First name not entered!'
-    );
-    echo json_encode($response_array);
-    exit;
-}
-$last_name = filter_input(INPUT_POST, 'last_name', FILTER_DEFAULT);
-if ($last_name === null) {
-    http_response_code(422);
-    header('Content-type: application/json');
-    $response_array = array(
-        'status' => 'error',
-        'message' => 'Last name not entered!'
+        'message' => 'Blood group not entered!'
     );
     echo json_encode($response_array);
     exit;
 }
 
-$dob = filter_input(INPUT_POST, 'dob', FILTER_DEFAULT);
-if ($dob === null) {
+$rh_factor = filter_input(INPUT_POST, 'rh_factor', FILTER_DEFAULT);
+if ($rh_factor === null) {
     http_response_code(422);
     header('Content-type: application/json');
     $response_array = array(
         'status' => 'error',
-        'message' => 'Date of birth not entered!'
+        'message' => 'RH Factor not entered!'
     );
     echo json_encode($response_array);
     exit;
 }
 
-$dob_parsed = date_parse($dob);
-if (!checkdate($dob_parsed['month'], $dob_parsed['day'], $dob_parsed['year'])) {
-    http_response_code(422);
-    header('Content-type: application/json');
-    $response_array = array(
-        'status' => 'error',
-        'message' => 'Date entered is invalid!'
-    );
-    echo json_encode($response_array);
-    exit;
-}
+$rare_antigen = filter_input(INPUT_POST, 'rare_antigen', FILTER_DEFAULT);
 
 include '../configuration.php';
 // Create connection
@@ -92,7 +71,7 @@ if ($connection->connect_error) {
     echo json_encode($response_array);
     exit;
 }
-if (!($statement = $connection->prepare("UPDATE donors SET first_name = ?, last_name = ?, dob = ? WHERE id = ?"))) {
+if (!($statement = $connection->prepare("UPDATE blood_types SET blood_group = ?, rh_factor = ?, rare_antigen = ? WHERE id = ?"))) {
     http_response_code(500);
     header('Content-type: application/json');
     $response_array = array(
@@ -102,7 +81,7 @@ if (!($statement = $connection->prepare("UPDATE donors SET first_name = ?, last_
     echo json_encode($response_array);
     exit;
 }
-if (!$statement->bind_param('sssi', $first_name, $last_name, $dob, $donor_id)) {
+if (!$statement->bind_param('sssi', $blood_group, $rh_factor, $rare_antigen, $blood_types_id)) {
     header('Content-type: application/json');
     $response_array = array(
         'status' => 'error',
@@ -126,7 +105,7 @@ $statement->close();
 header('Content-type: application/json');
 $response_array = array(
     'status' => 'success',
-    'message' => 'Donor updated!'
+    'message' => 'Blood Type updated!'
 );
 echo json_encode($response_array);
 exit;
