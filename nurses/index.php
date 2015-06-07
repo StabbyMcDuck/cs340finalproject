@@ -92,7 +92,7 @@ $connection = new mysqli(
 if (!($statement = $connection->prepare(
     "SELECT nurses.id, " .
     "nurses.first_name, " .
-    "nurses.last_name, " .
+    "nurses.last_name " .
     "FROM nurses"
 ))
 ) {
