@@ -71,7 +71,7 @@ if (!($statement = $connection->prepare("INSERT INTO nurses(first_name, last_nam
     exit;
 }
 
-if (!$statement->bind_param('sss', $first_name, $last_name)) {
+if (!$statement->bind_param('ss', $first_name, $last_name)) {
     header('Content-type: application/json');
     $response_array = array(
         'status' => 'error',
