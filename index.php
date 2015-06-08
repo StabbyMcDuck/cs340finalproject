@@ -23,7 +23,12 @@ if(!isset($_SESSION['id'])){
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <!-- Bootstrap core CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../css/navbar-fixed-top.css" rel="stylesheet">
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 </head>
@@ -77,6 +82,8 @@ This information is vital to the blood bank.  After the collection, a donor can 
     educated correctly and it turns out he was incorrectly drawing the blood, you would need to be able to go back
     through the database and be able to identify what bags he had drawn so they could be destroyed.
 </p>
+    <br>
+
     <h3>
         To use this database:
     </h3>
