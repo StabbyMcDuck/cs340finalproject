@@ -123,7 +123,7 @@ if (!($statement = $connection->prepare(
     "SET collection_datetime = ?, " .
     "fk_clinic_id = ?, " .
     "fk_nurse_id = ?, " .
-    "fk_donor_id = ?" .
+    "fk_donor_id = ?, " .
     "fk_blood_type_id = ? " .
     "WHERE id = ?"
 ))) {
