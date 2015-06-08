@@ -31,7 +31,7 @@ if(!isset($_SESSION['id'])){
     <link href="../css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="../css/nurses/new.css" rel="stylesheet">
+    <link href="../css/new.css" rel="stylesheet">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="https://malsup.github.com/jquery.form.js"></script>
