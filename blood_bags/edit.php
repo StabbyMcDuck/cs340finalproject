@@ -132,6 +132,8 @@ if (!$statement->bind_result(
     <?php
     exit;
 }
+
+$statement->store_result();
 while ($statement->fetch()) {
     ?>
     <div class="container">
