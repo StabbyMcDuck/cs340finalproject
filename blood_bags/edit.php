@@ -181,7 +181,7 @@ while ($statement->fetch()) {
                     while ($clinic_statement->fetch()) {
                         ?>
                         <li>
-                            <input type="radio" name="clinic_id" id="clinic-<?php echo $out_clinic_id ?>"
+                            <input type="radio" name="fk_clinic_id" id="clinic-<?php echo $out_clinic_id ?>"
                                    value="<?php echo $out_clinic_id ?>" <?php
                             if($out_clinic_id == $out_fk_clinic_id) {
                                 ?>checked="checked"<?php
@@ -239,7 +239,7 @@ while ($statement->fetch()) {
                     while ($nurse_statement->fetch()) {
                         ?>
                         <li>
-                            <input type="radio" name="nurse_id" id="nurse-<?php echo $out_nurse_id ?>"
+                            <input type="radio" name="fk_nurse_id" id="nurse-<?php echo $out_nurse_id ?>"
                                    value="<?php echo $out_nurse_id ?>"<?php
                             if($out_nurse_id == $out_fk_nurse_id) {
                             ?>checked="checked"<?php
@@ -297,7 +297,7 @@ while ($statement->fetch()) {
                     while ($donor_statement->fetch()) {
                         ?>
                         <li>
-                            <input type="radio" name="donor_id" id="donor-<?php echo $out_donor_id ?>"
+                            <input type="radio" name="fk_donor_id" id="donor-<?php echo $out_donor_id ?>"
                                    value="<?php echo $out_donor_id ?>"<?php
                             if($out_donor_id == $out_fk_donor_id) {
                             ?>checked="checked"<?php
@@ -358,7 +358,7 @@ while ($statement->fetch()) {
                     while ($blood_type_statement->fetch()) {
                         ?>
                         <li>
-                            <input type="radio" name="blood_type_id" id="donor-<?php echo $out_blood_type_id ?>"
+                            <input type="radio" name="fk_blood_type_id" id="donor-<?php echo $out_blood_type_id ?>"
                                    value="<?php echo $out_blood_type_id ?>"<?php
                             if($out_blood_type_id == $out_fk_blood_type_id) {
                             ?>checked="checked"<?php
