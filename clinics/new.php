@@ -53,6 +53,11 @@ if(!isset($_SESSION['id'])){
 </head>
 
 <body>
+<?php
+
+require '../navbar.php';
+
+?>
 
 <div class="container">
 

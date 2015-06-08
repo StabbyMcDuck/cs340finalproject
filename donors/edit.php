@@ -56,6 +56,9 @@ if (!isset($_SESSION['id'])) {
 
 <body>
 <?php
+
+require '../navbar.php';
+
 $donor_id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
 if ($donor_id === null) {
     ?>

@@ -56,6 +56,8 @@ if (!isset($_SESSION['id'])) {
 
 <body>
 <?php
+require '../navbar.php';
+
 $blood_type_id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
 if ($blood_type_id === null) {
     ?>
