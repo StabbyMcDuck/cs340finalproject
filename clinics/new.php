@@ -34,7 +34,7 @@ if(!isset($_SESSION['id'])){
     <link href="../css/clinics/new.css" rel="stylesheet">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script src="http://malsup.github.com/jquery.form.js"></script>
+    <script src="https://malsup.github.com/jquery.form.js"></script>
 
     <script>
         // wait for the DOM to be loaded
