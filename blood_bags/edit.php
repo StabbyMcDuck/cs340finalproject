@@ -144,7 +144,12 @@ while ($statement->fetch()) {
 
             <label for="collection_datetime" class="sr-only">Collection Date/Time</label>
             <input type="datetime-local" id="collection_datetime" class="form-control" placeholder="collection_datetime"
-                   required autofocus name="collection_datetime" value="<?php echo $out_collection_datetime ?>">
+                   required autofocus name="collection_datetime" value="<?php
+            $php_date = strtotime($out_collection_datetime);
+            $local_datetime = date('Y-m-dTH:i:s', $php_date);
+            # datetime-local input needs YYYY-MM-DDTHH:MM:SS format or value won't show
+            echo $local_datetime;
+            ?>">
 
             <fieldset>
                 <legend>Clinic</legend>
