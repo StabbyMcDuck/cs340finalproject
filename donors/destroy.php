@@ -65,7 +65,7 @@ if (!($statement = $connection->prepare("DELETE FROM donors WHERE donors.id = ?"
     exit;
 }
 
-if (!$statement->bind_param('i', $donors_id)) {
+if (!$statement->bind_param('i', $donor_id)) {
     header('Content-type: application/json');
     $response_array = array(
         'status' => 'error',
@@ -91,7 +91,7 @@ $statement->close();
 header('Content-type: application/json');
 $response_array = array(
     'status' => 'success',
-    'id' => $donors_id,
+    'id' => $donor_id,
     'message' => 'Donor removed'
 );
 echo json_encode($response_array);
