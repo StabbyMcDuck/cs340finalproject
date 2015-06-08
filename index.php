@@ -7,14 +7,11 @@
  * Time: 2:56 PM
  */
 
-
-// turns on error reporting
-error_reporting(E_ALL);
-$mysqli = new mysqli("oniddb.cws.oregonstate.edu", "imhoffr-db", "kSPLM3ed144rC1dd", "imhoffr-db");
-
-// test connection
-if($mysqli->connect_errno){
-    echo "Connection error" . $mysqli->connect_errno . " " .  $mysqli->connect_error;
+session_start();
+if(!isset($_SESSION['id'])){
+    //redirect them back to login page
+    header("Location: session/new.php"); /* Redirect browser */
+    exit();
 }
 ?>
 
