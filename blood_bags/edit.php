@@ -146,7 +146,7 @@ while ($statement->fetch()) {
             <input type="datetime-local" id="collection_datetime" class="form-control" placeholder="collection_datetime"
                    required autofocus name="collection_datetime" value="<?php
             $php_date = strtotime($out_collection_datetime);
-            $local_datetime = date('Y-m-dTH:i:s', $php_date);
+            $local_datetime = date('Y-m-d\TH:i:s', $php_date);
             # datetime-local input needs YYYY-MM-DDTHH:MM:SS format or value won't show
             echo $local_datetime;
             ?>">
