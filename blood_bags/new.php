@@ -71,7 +71,7 @@ $connection = new mysqli(
         <h2 class="form-signin-heading">Add Blood Bag</h2>
 
         <label for="collection_datetime" class="sr-only">Collection Date/Time</label>
-        <input type="datetime" id="collection_datetime" class="form-control" placeholder="collection_datetime" required autofocus name="collection_datetime">
+        <input type="datetime-local" id="collection_datetime" class="form-control" placeholder="collection_datetime" required autofocus name="collection_datetime">
 
         <fieldset>
             <legend>Clinic</legend>
