@@ -143,7 +143,8 @@ while ($statement->fetch()) {
             <input type="hidden" name="id" value="<?php echo $out_id ?>">
 
             <label for="collection_datetime" class="sr-only">Collection Date/Time</label>
-            <input type="datetime-local" id="collection_datetime" class="form-control" placeholder="collection_datetime" required autofocus name="collection_datetime">
+            <input type="datetime-local" id="collection_datetime" class="form-control" placeholder="collection_datetime"
+                   required autofocus name="collection_datetime" value="<?php echo $out_collection_datetime ?>">
 
             <fieldset>
                 <legend>Clinic</legend>
