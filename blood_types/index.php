@@ -155,6 +155,13 @@ if (!$statement->bind_result($out_id, $out_blood_group, $out_rh_factor, $out_rar
         }
         ?>
         </tbody>
+        <tfoot>
+        <tr>
+            <td colspan="3"></td>
+            <td></td>
+            <td><a href="new.php">Add</a></td>
+        </tr>
+        </tfoot>
     </table>
 </div>
 </body>

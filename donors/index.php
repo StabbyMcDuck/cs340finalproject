@@ -156,6 +156,13 @@ if (!$statement->bind_result($out_id, $out_first_name, $out_last_name, $out_dob)
         }
         ?>
         </tbody>
+        <tfoot>
+        <tr>
+            <td colspan="3"></td>
+            <td></td>
+            <td><a href="new.php">Add</a></td>
+        </tr>
+        </tfoot>
     </table>
 </div>
 </body>
