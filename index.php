@@ -32,16 +32,10 @@ if($mysqli->connect_errno){
 </head>
 
 <body>
+<?php
 
-<a href="donors/index.php">Donors</a>
+require 'navbar.php'
 
-<a href="clinics/index.php">Clinics</a>
-
-<a href="nurses/index.php">Nurses</a>
-
-<a href="blood_types/index.php">Blood Types</a>
-
-<a href="blood_bags/index.php">Blood Bags</a>
-
+?>
 </body>
 </html>
