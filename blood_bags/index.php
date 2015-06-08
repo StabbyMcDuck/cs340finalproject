@@ -186,7 +186,7 @@ if (!$statement->bind_result(
         <?php
         while ($statement->fetch()) {
             ?>
-            <tr id="donor-<?php echo $out_blood_bags_id ?>">
+            <tr id="blood-bag-<?php echo $out_blood_bags_id ?>">
                 <td>
                     <?php echo $out_blood_bags_collection_datetime ?>
                 </td>

@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0d5b9802-e4b6-4bb3-9c0f-f9c6c025d66f" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/blood_bags/index.php" afterPath="$PROJECT_DIR$/blood_bags/index.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="cs340finalproject.iws" />
@@ -27,61 +28,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="new.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/blood_bags/new.php">
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/blood_bags/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.9583333" vertical-offset="4024" max-vertical-offset="4530">
-              <caret line="278" column="53" selection-start-line="278" selection-start-column="53" selection-end-line="278" selection-end-column="53" />
-              <folding>
-                <marker date="1433729533000" expanded="true" signature="2360:2438" placeholder="SELECT clini..clinics..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="edit.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/blood_bags/edit.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.033402923" vertical-offset="2206" max-vertical-offset="6000">
-              <caret line="146" column="31" selection-start-line="146" selection-start-column="31" selection-end-line="146" selection-end-column="31" />
-              <folding>
-                <element signature="e#6#92#0#PHP" expanded="true" />
-                <marker date="1433731600000" expanded="true" signature="3916:3983" placeholder="..." />
-                <marker date="1433731600000" expanded="true" signature="4112:4190" placeholder="SELECT clini..clinics..." />
-                <marker date="1433731600000" expanded="true" signature="5236:5277" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="update.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/blood_bags/update.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.625" vertical-offset="1665" max-vertical-offset="2625">
-              <caret line="125" column="25" selection-start-line="125" selection-start-column="25" selection-end-line="125" selection-end-column="25" />
+            <state vertical-scroll-proportion="0.6146245" vertical-offset="2434" max-vertical-offset="3675">
+              <caret line="188" column="29" selection-start-line="188" selection-start-column="29" selection-end-line="188" selection-end-column="29" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/index.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-15.458333" vertical-offset="589" max-vertical-offset="1215">
-              <caret line="69" column="22" selection-start-line="69" selection-start-column="22" selection-end-line="69" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="create.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/blood_bags/create.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-60.0" vertical-offset="180" max-vertical-offset="2310">
-              <caret line="113" column="5" selection-start-line="113" selection-start-column="5" selection-end-line="113" selection-end-column="22" />
-              <folding>
-                <marker date="1433702633000" expanded="true" signature="3092:3220" placeholder="INSERT INTO ..." />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -114,7 +66,6 @@
         <option value="$PROJECT_DIR$/blood_bags/destroy.php" />
         <option value="$PROJECT_DIR$/blood_bags/create.php" />
         <option value="$PROJECT_DIR$/navbar.php" />
-        <option value="$PROJECT_DIR$/blood_bags/index.php" />
         <option value="$PROJECT_DIR$/blood_types/edit.php" />
         <option value="$PROJECT_DIR$/blood_types/new.php" />
         <option value="$PROJECT_DIR$/clinics/edit.php" />
@@ -131,6 +82,7 @@
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/blood_bags/update.php" />
         <option value="$PROJECT_DIR$/blood_bags/edit.php" />
+        <option value="$PROJECT_DIR$/blood_bags/index.php" />
       </list>
     </option>
   </component>
@@ -756,14 +708,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/blood_bags/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.86725664" vertical-offset="3329" max-vertical-offset="3675">
-          <caret line="240" column="16" selection-start-line="234" selection-start-column="8" selection-end-line="240" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/blood_types/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.2699115" vertical-offset="2249" max-vertical-offset="2520">
@@ -792,50 +736,58 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/blood_bags/create.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-60.0" vertical-offset="180" max-vertical-offset="2310">
+        <state vertical-scroll-proportion="2.8458498" vertical-offset="180" max-vertical-offset="2310">
           <caret line="113" column="5" selection-start-line="113" selection-start-column="5" selection-end-line="113" selection-end-column="22" />
           <folding>
-            <marker date="1433702633000" expanded="true" signature="3092:3220" placeholder="INSERT INTO ..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/blood_bags/new.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.9583333" vertical-offset="4024" max-vertical-offset="4530">
-          <caret line="278" column="53" selection-start-line="278" selection-start-column="53" selection-end-line="278" selection-end-column="53" />
-          <folding>
-            <marker date="1433729533000" expanded="true" signature="2360:2438" placeholder="SELECT clini..clinics..." />
+            <marker date="1433702633000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.458333" vertical-offset="589" max-vertical-offset="1215">
+        <state vertical-scroll-proportion="0.73320156" vertical-offset="589" max-vertical-offset="1215">
           <caret line="69" column="22" selection-start-line="69" selection-start-column="22" selection-end-line="69" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/blood_bags/update.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.625" vertical-offset="1665" max-vertical-offset="2625">
-          <caret line="125" column="25" selection-start-line="125" selection-start-column="25" selection-end-line="125" selection-end-column="25" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/blood_bags/edit.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.033402923" vertical-offset="2206" max-vertical-offset="6000">
-          <caret line="146" column="31" selection-start-line="146" selection-start-column="31" selection-end-line="146" selection-end-column="31" />
+        <state vertical-scroll-proportion="0.37578288" vertical-offset="2205" max-vertical-offset="6000">
+          <caret line="159" column="25" selection-start-line="159" selection-start-column="25" selection-end-line="159" selection-end-column="25" />
           <folding>
             <element signature="e#6#92#0#PHP" expanded="true" />
-            <marker date="1433731600000" expanded="true" signature="3916:3983" placeholder="..." />
-            <marker date="1433731600000" expanded="true" signature="4112:4190" placeholder="SELECT clini..clinics..." />
-            <marker date="1433731600000" expanded="true" signature="5236:5277" placeholder="..." />
+            <marker date="1433731754000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1433731754000" expanded="true" signature="-1:-1" placeholder="SELECT clini..clinics..." />
+            <marker date="1433731754000" expanded="true" signature="-1:-1" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/blood_bags/new.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.1403162" vertical-offset="4024" max-vertical-offset="4530">
+          <caret line="278" column="53" selection-start-line="278" selection-start-column="53" selection-end-line="278" selection-end-column="53" />
+          <folding>
+            <marker date="1433729533000" expanded="true" signature="-1:-1" placeholder="SELECT clini..clinics..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/blood_bags/update.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2667984" vertical-offset="1665" max-vertical-offset="2625">
+          <caret line="125" column="25" selection-start-line="125" selection-start-column="25" selection-end-line="125" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/blood_bags/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6146245" vertical-offset="2434" max-vertical-offset="3675">
+          <caret line="188" column="29" selection-start-line="188" selection-start-column="29" selection-end-line="188" selection-end-column="29" />
+          <folding />
         </state>
       </provider>
     </entry>
