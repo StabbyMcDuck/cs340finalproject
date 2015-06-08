@@ -56,7 +56,7 @@ if(!isset($_SESSION['id'])){
         <!--/.nav-collapse -->
     </div>
 </nav>
-
+<div class="container">
 <h2>
     Blood Bank Inventory Database
 </h2><br> <br>
@@ -77,5 +77,12 @@ This information is vital to the blood bank.  After the collection, a donor can 
     educated correctly and it turns out he was incorrectly drawing the blood, you would need to be able to go back
     through the database and be able to identify what bags he had drawn so they could be destroyed.
 </p>
+    <h3>
+        To use this database:
+    </h3>
+    <p>Start with any table (located in header above) but be aware
+    that the blood bag table will not be able to be filled in
+    until the other tables are filled in.  </p>
+    </div>
 </body>
 </html>
