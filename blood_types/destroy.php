@@ -82,7 +82,7 @@ if (!$statement->execute()) {
     header('Content-type: application/json');
     $response_array = array(
         'status' => 'error',
-        'message' => 'Try again later (4)'
+        'message' => 'Blood Type in use in Blood Bags'
     );
     echo json_encode($response_array);
     exit;
