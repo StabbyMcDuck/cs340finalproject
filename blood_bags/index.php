@@ -198,7 +198,7 @@ if (!$statement->bind_result(
             <th>Last Name</th>
             <th>Blood Group</th>
             <th>RH Factor</th>
-            <th>Rare Antigen'/</th>
+            <th>Rare Antigen</th>
             <th>Edit</th>
             <th>Delete</th>
         </tr>
