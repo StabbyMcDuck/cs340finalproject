@@ -19,7 +19,6 @@
                 <li><a href="../nurses/index.php">Nurses</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="new.php">Add Blood Bag</a></li>
                 <li><a href="../session/destroy.php">Logout</a></li>
             </ul>
         </div>
