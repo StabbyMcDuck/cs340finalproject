@@ -111,7 +111,7 @@ $connection = new mysqli(
                   while ($clinic_statement->fetch()) {
                       ?>
                       <li>
-                          <input type="radio" name="clinic_id" id="clinic-<?php echo $out_clinic_id ?>"
+                          <input type="radio" name="fk_clinic_id" id="clinic-<?php echo $out_clinic_id ?>"
                                  value="<?php echo $out_clinic_id ?>"/>
                           <label for="clinic-<?php echo $out_clinic_id ?>">
                               <?php echo $out_clinic_location ?>
@@ -165,7 +165,7 @@ $connection = new mysqli(
                 while ($nurse_statement->fetch()) {
                     ?>
                     <li>
-                        <input type="radio" name="nurse_id" id="nurse-<?php echo $out_nurse_id ?>"
+                        <input type="radio" name="fk_nurse_id" id="nurse-<?php echo $out_nurse_id ?>"
                                value="<?php echo $out_nurse_id ?>"/>
                         <label for="nurse-<?php echo $out_nurse_id ?>">
                             <?php echo $out_nurse_last_name ?>, <?php echo $out_nurse_first_name ?>
@@ -219,7 +219,7 @@ $connection = new mysqli(
                 while ($donor_statement->fetch()) {
                     ?>
                     <li>
-                        <input type="radio" name="donor_id" id="donor-<?php echo $out_donor_id ?>"
+                        <input type="radio" name="fk_donor_id" id="donor-<?php echo $out_donor_id ?>"
                                value="<?php echo $out_donor_id ?>"/>
                         <label for="donor-<?php echo $out_donor_id ?>">
                             <?php echo $out_donor_last_name ?>, <?php echo $out_donor_first_name ?>
@@ -276,7 +276,7 @@ $connection = new mysqli(
                 while ($blood_type_statement->fetch()) {
                     ?>
                     <li>
-                        <input type="radio" name="blood_type_id" id="donor-<?php echo $out_blood_type_id ?>"
+                        <input type="radio" name="fk_blood_type_id" id="donor-<?php echo $out_blood_type_id ?>"
                                value="<?php echo $out_blood_type_id ?>"/>
                         <label for="donor-<?php echo $out_blood_type_id ?>">
                             <?php echo $out_blood_type_blood_group ?>, <?php echo $out_blood_type_rh_factor ?>, <?php echo $out_blood_type_rare_antigen ?>
