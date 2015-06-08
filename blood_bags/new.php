@@ -183,9 +183,9 @@ $connection = new mysqli(
                     "SELECT donors.id, " .
                     "donors.last_name, " .
                     "donors.first_name " .
-                    "FROM nurses " .
-                    "ORDER BY nurses.last_name ASC, " .
-                    "nurses.first_name ASC"
+                    "FROM donors " .
+                    "ORDER BY donors.last_name ASC, " .
+                    "donors.first_name ASC"
                 ))) {
                     error_log($connection->error);
                     ?>
