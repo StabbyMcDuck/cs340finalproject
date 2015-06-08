@@ -56,5 +56,26 @@ if(!isset($_SESSION['id'])){
         <!--/.nav-collapse -->
     </div>
 </nav>
+
+<h2>
+    Blood Bank Inventory Database
+</h2><br> <br>
+<h3>
+    By Regina Imhoff for CS 340 @ Oregon State University
+</h3>
+<p>
+This project is a blood bank inventory.  It is designed to keep track of blood in stock in a blood bank, who it
+came from (the donor), who drew the blood (the nurse), where it was drawn (the clinic), and the information that is
+associated with the blood bag that is kept in frozen storage.  This is not a database for where the blood goes once it
+leaves the blood bank.
+</p>
+<br>
+<p>
+This information is vital to the blood bank.  After the collection, a donor can ask for their blood to be destroyed,
+    so you would need to know what bag came from what donor.  If a collection site's security or freezer storage is
+    compromised, you would need to know what bags of blood came from which site.  In addition, if a nurse was not
+    educated correctly and it turns out he was incorrectly drawing the blood, you would need to be able to go back
+    through the database and be able to identify what bags he had drawn so they could be destroyed.
+</p>
 </body>
 </html>
