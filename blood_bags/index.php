@@ -23,7 +23,7 @@ if (!isset($_SESSION['id'])) {
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Donors</title>
+    <title>Blood Bags</title>
 
     <!-- Bootstrap core CSS -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">

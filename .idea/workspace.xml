@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0d5b9802-e4b6-4bb3-9c0f-f9c6c025d66f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/navbar.php" afterPath="$PROJECT_DIR$/navbar.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/blood_bags/index.php" afterPath="$PROJECT_DIR$/blood_bags/index.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="cs340finalproject.iws" />
@@ -58,8 +58,8 @@
           <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/blood_bags/index.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.39698493" vertical-offset="701" max-vertical-offset="3675">
-                  <caret line="57" column="7" selection-start-line="57" selection-start-column="7" selection-end-line="57" selection-end-column="7" />
+                <state vertical-scroll-proportion="0.39698493" vertical-offset="221" max-vertical-offset="3675">
+                  <caret line="25" column="21" selection-start-line="25" selection-start-column="21" selection-end-line="25" selection-end-column="21" />
                   <folding />
                 </state>
               </provider>
@@ -136,8 +136,8 @@
         <option value="$PROJECT_DIR$/blood_bags/update.php" />
         <option value="$PROJECT_DIR$/blood_bags/edit.php" />
         <option value="$PROJECT_DIR$/blood_bags/new.php" />
-        <option value="$PROJECT_DIR$/blood_bags/index.php" />
         <option value="$PROJECT_DIR$/navbar.php" />
+        <option value="$PROJECT_DIR$/blood_bags/index.php" />
       </list>
     </option>
   </component>
@@ -770,18 +770,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/blood_bags/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.39698493" vertical-offset="701" max-vertical-offset="3675">
-          <caret line="57" column="7" selection-start-line="57" selection-start-column="7" selection-end-line="57" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/navbar.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.25" vertical-offset="260" max-vertical-offset="480">
           <caret line="21" column="15" selection-start-line="21" selection-start-column="15" selection-end-line="21" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/blood_bags/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.39698493" vertical-offset="221" max-vertical-offset="3675">
+          <caret line="25" column="21" selection-start-line="25" selection-start-column="21" selection-end-line="25" selection-end-column="21" />
           <folding />
         </state>
       </provider>
