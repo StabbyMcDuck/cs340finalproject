@@ -152,7 +152,7 @@ while ($statement->fetch()) {
                     ))) {
                         error_log($connection->error);
                         ?>
-                        <p>Try again later (1)</p>
+                        <p>Try again later (5)</p>
                         <?php
                         exit;
                     }
@@ -160,7 +160,7 @@ while ($statement->fetch()) {
                     if (!$clinic_statement->execute()) {
                         error_log($clinic_statement->error);
                         ?>
-                        <p>Try again later (2)</p>
+                        <p>Try again later (6)</p>
                         <?php
                         exit;
                     }
@@ -171,7 +171,7 @@ while ($statement->fetch()) {
                     if (!$clinic_statement->bind_result($out_clinic_id, $out_clinic_location)) {
                         error_log($clinic_statement->error);
                         ?>
-                        <p>Try again later (3)</p>
+                        <p>Try again later (7)</p>
                         <?php
                         exit;
                     }
@@ -209,7 +209,7 @@ while ($statement->fetch()) {
                     ))) {
                         error_log($connection->error);
                         ?>
-                        <p>Try again later (4)</p>
+                        <p>Try again later (8)</p>
                         <?php
                         exit;
                     }
@@ -217,7 +217,7 @@ while ($statement->fetch()) {
                     if (!$nurse_statement->execute()) {
                         error_log($nurse_statement->error);
                         ?>
-                        <p>Try again later (5)</p>
+                        <p>Try again later (9)</p>
                         <?php
                         exit;
                     }
@@ -229,7 +229,7 @@ while ($statement->fetch()) {
                     if (!$nurse_statement->bind_result($out_nurse_id, $out_nurse_last_name, $out_nurse_first_name)) {
                         error_log($nurse_statement->error);
                         ?>
-                        <p>Try again later (6)</p>
+                        <p>Try again later (10)</p>
                         <?php
                         exit;
                     }
@@ -267,7 +267,7 @@ while ($statement->fetch()) {
                     ))) {
                         error_log($connection->error);
                         ?>
-                        <p>Try again later (7)</p>
+                        <p>Try again later (11)</p>
                         <?php
                         exit;
                     }
@@ -275,7 +275,7 @@ while ($statement->fetch()) {
                     if (!$donor_statement->execute()) {
                         error_log($donor_statement->error);
                         ?>
-                        <p>Try again later (8)</p>
+                        <p>Try again later (12)</p>
                         <?php
                         exit;
                     }
@@ -287,7 +287,7 @@ while ($statement->fetch()) {
                     if (!$donor_statement->bind_result($out_donor_id, $out_donor_last_name, $out_donor_first_name)) {
                         error_log($donor_statement->error);
                         ?>
-                        <p>Try again later (9)</p>
+                        <p>Try again later (13)</p>
                         <?php
                         exit;
                     }
@@ -327,7 +327,7 @@ while ($statement->fetch()) {
                     ))) {
                         error_log($connection->error);
                         ?>
-                        <p>Try again later (10)</p>
+                        <p>Try again later (14)</p>
                         <?php
                         exit;
                     }
@@ -335,7 +335,7 @@ while ($statement->fetch()) {
                     if (!$blood_type_statement->execute()) {
                         error_log($blood_type_statement->error);
                         ?>
-                        <p>Try again later (11)</p>
+                        <p>Try again later (15)</p>
                         <?php
                         exit;
                     }
@@ -348,7 +348,7 @@ while ($statement->fetch()) {
                     if (!$blood_type_statement->bind_result($out_blood_type_id, $out_blood_type_blood_group, $out_blood_type_rh_factor, $out_blood_type_rare_antigen)) {
                         error_log($blood_type_statement->error);
                         ?>
-                        <p>Try again later (9)</p>
+                        <p>Try again later (16)</p>
                         <?php
                         exit;
                     }
